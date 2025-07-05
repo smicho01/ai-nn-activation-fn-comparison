@@ -453,7 +453,7 @@ def main():
     
     # Footer
     st.markdown("---")
-    st.markdown("🔬 Built SevMadeIT with Streamlit, PyTorch, and Plotly")
+    st.markdown("🔬 Built by SevMadeIT with Streamlit, PyTorch, and Plotly")
 
 if __name__ == "__main__":
     main()
