@@ -1,0 +1,7 @@
+python -m venv anomaly
+source anomaly/bin/activate      # On Linux/macOS
+anomaly\Scripts\activate.bat     # On Windows
+
+
+
+pip install -r requirements.txt

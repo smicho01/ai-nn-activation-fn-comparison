@@ -273,6 +273,8 @@ class StreamlitVisualizer:
 def main():
     st.title("🧠 Neural Network Activation Function - Comparison Lab")
     st.markdown("Compare different neural network architectures and activation functions")
+    st.markdown("This app allows you to visualize the impact of various activation functions on neural network performance.")
+    st.markdown("By the way ... SevMadeIT")
     
     # Initialize session state
     if 'trained_models' not in st.session_state:
@@ -451,7 +453,7 @@ def main():
     
     # Footer
     st.markdown("---")
-    st.markdown("🔬 Built with Streamlit, PyTorch, and Plotly")
+    st.markdown("🔬 Built SevMadeIT with Streamlit, PyTorch, and Plotly")
 
 if __name__ == "__main__":
     main()
