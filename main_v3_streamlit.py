@@ -13,6 +13,23 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import time
+import os
+import json
+
+COUNT_FILE = "click_count.json"
+
+def get_click_count() -> int:
+    if os.path.exists(COUNT_FILE):
+        with open(COUNT_FILE, "r") as f:
+            data = json.load(f)
+            return data.get("count", 0)
+    return 0
+
+def increment_click_count():
+    count = get_click_count() + 1
+    with open(COUNT_FILE, "w") as f:
+        json.dump({"count": count}, f)
+    return count
 
 # Set page config
 st.set_page_config(
@@ -328,6 +345,11 @@ def main():
         st.header("🎯 Training")
         
         if st.button("🚀 Generate Data & Train Models", type="primary"):
+
+            # Increment click count
+            click_count = increment_click_count()
+        
+
             # Generate data
             data_generator = DataGenerator(seed)
             x_train, y_train = data_generator.generate_polynomial_data(
@@ -454,6 +476,7 @@ def main():
     # Footer
     st.markdown("---")
     st.markdown("🔬 Built by SevMadeIT with Streamlit, PyTorch, and Plotly")
+    st.sidebar.markdown(f"🧮 **Nums:** {get_click_count()}")
 
 if __name__ == "__main__":
     main()
